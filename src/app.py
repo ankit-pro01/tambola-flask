@@ -154,4 +154,5 @@ def playAgain(data):
 #     return None
 
 if __name__ == '__main__':
-    socketIo.run(app)
+    # socketIo.run(app)
+    app.run()
