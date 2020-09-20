@@ -11,7 +11,7 @@ import random
 import numpy as np
 
 
-app = Flask(__name__, static_folder='../build', static_url_path='/')
+app = Flask(__name__,)
 
 socketIo = SocketIO(app, cors_allowed_origins="*")
         
@@ -166,7 +166,7 @@ def playAgain(data):
 
 @app.route('/')
 def hello():
-    return app.send_static_file('index.html')
+    return render_template('index.html')
 
 # @app.route('/add')
 # def add():
