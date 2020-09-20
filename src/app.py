@@ -1,9 +1,21 @@
-from flask1 import app, socketIo, send, emit,  join_room, leave_room
+
+
+
+from flask import Flask
+
+from flask import render_template, jsonify, request
+
+from flask_socketio import SocketIO, send, emit, join_room, leave_room
 
 from time import localtime, strftime
 import random
 
 import numpy as np
+
+
+app = Flask(__name__, static_folder='../build', static_url_path='/')
+
+socketIo = SocketIO(app, cors_allowed_origins="*")
         
 
 ROOMS = []
@@ -152,6 +164,34 @@ def playAgain(data):
 #     print(name)
 #     # send(name + " " + "added to the chat", broadcast=True)
 #     return None
+
+
+@app.route('/')
+def hello():
+    return app.send_static_file('index.html')
+
+# @app.route('/add')
+# def add():
+#     id = mongo.db.user.insert_one({'name': 'abc', 'email': 'abc@domain.com', 'pwd': '####'})
+#     resp = jsonify("user added successfully")
+#     resp.status_code = 200
+#     return resp
+
+
+
+
+
+@app.errorhandler(404)
+def not_found(error = None):
+    message = {
+        'status': 404,
+        'message': 'Not Found' + request.url
+    }
+
+    resp = jsonify(message)
+    resp.status_code = 404
+    return resp 
+
 
 if __name__ == '__main__':
     # socketIo.run(app)
