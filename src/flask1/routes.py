@@ -1,6 +1,5 @@
 from flask import render_template, jsonify, request
 from flask1 import app
-from flask1 import mongo
 
 from bson.json_util import dumps
 
