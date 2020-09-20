@@ -192,5 +192,4 @@ def not_found(error = None):
 
 
 if __name__ == '__main__':
-    # socketIo.run(app)
-    app.run()
+    socketIo.run(app)
