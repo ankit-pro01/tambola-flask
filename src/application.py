@@ -98,14 +98,6 @@ def on_claim(data):
         emit('claim', { 'msg' : "NO", 'claimer' : name}, room = room)
 
 
-# @socketIo.on('leave')
-# def on_leave(data):
-#     username = data['name']
-#     room = data['room']
-#     leave_room(room)
-#     send({username + ' has left the room.'}, room = room)
-
-
 
 def get_arr():
     return random.sample(range(1, 101), 18)
@@ -148,34 +140,9 @@ def playAgain(data):
     emit("playAgain", {'msg': "playAgain"})
     
 
-
-
-
-# @socketIo.on("data")
-# def handleMessage(message):
-#     print(message)
-#     send(message, broadcast=True,)
-#     return None
-
-# @socketIo.on("name")
-# def handleMessage(name):
-#     print(name)
-#     # send(name + " " + "added to the chat", broadcast=True)
-#     return None
-
-
 @app.route('/')
 def hello():
     return render_template('index.html')
-
-# @app.route('/add')
-# def add():
-#     id = mongo.db.user.insert_one({'name': 'abc', 'email': 'abc@domain.com', 'pwd': '####'})
-#     resp = jsonify("user added successfully")
-#     resp.status_code = 200
-#     return resp
-
-
 
 
 
