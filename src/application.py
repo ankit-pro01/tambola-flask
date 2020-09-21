@@ -10,6 +10,7 @@ import random
 
 import numpy as np
 
+import os
 
 app = Flask(__name__,)
 
@@ -159,4 +160,5 @@ def not_found(error = None):
 
 
 if __name__ == '__main__':
-    socketIo.run(app)
+    # socketIo.run(app)
+    app.run()
