@@ -12,7 +12,7 @@ import numpy as np
 
 import os
 
-app = Flask(__name__,)
+app = Flask(__name__,static_folder='../build', static_url_path='/')
 
 socketIo = SocketIO(app, cors_allowed_origins="*")
         
@@ -143,7 +143,7 @@ def playAgain(data):
 
 @app.route('/')
 def hello():
-    return render_template('index.html')
+    return app.send_static_file('index.html')
 
 
 
