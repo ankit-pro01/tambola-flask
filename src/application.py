@@ -12,7 +12,9 @@ import numpy as np
 
 import os
 
-app = Flask(__name__,static_folder='../build', static_url_path='/')
+# app = Flask(__name__,static_folder='../build', static_url_path='/')
+
+app = Flask(__name__, static_url_path='', static_folder="build", template_folder="build")
 
 socketIo = SocketIO(app, cors_allowed_origins="*")
         
